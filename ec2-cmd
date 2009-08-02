@@ -1,0 +1,43 @@
+#!/bin/bash
+# 
+# EC2 API Tools dispatcher
+# Lubomir Rintel (Good Data) <lubo.rintel@gooddata.com>
+
+# Source functions library
+if [ -f /usr/share/java-utils/java-functions ] ; then 
+  . /usr/share/java-utils/java-functions
+else
+  echo "Can't find functions library, aborting"
+  exit 1
+fi
+
+# Load system-wide configuration
+if [ -f /etc/ec2-cmd.conf ]; then
+  . /etc/ec2-cmd.conf
+fi
+
+# Load user configuration
+if [ -f "$HOME/.ec2-cmdrc" ]; then
+  . "$HOME/.ec2-cmdrc"
+fi
+
+CMD=$1; shift
+if [ -z "$CMD" ]
+then
+	echo "Missing an argument. Usage: $0 <argument>" >&2
+	exit 1
+fi
+
+# Rest of the configuration
+MAIN_CLASS=com.amazon.aes.webservices.client.cmd.$CMD
+
+# Set parameters
+set_jvm
+
+set_flags $BASE_FLAGS
+set_options $BASE_OPTIONS $EC2CMD_OPTS
+
+CLASSPATH=$(echo /usr/share/java/ec2-api-tools/* |sed 's/ /:/g')
+
+# Let's start
+run "$@"
