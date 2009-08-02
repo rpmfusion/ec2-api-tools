@@ -3,7 +3,7 @@
 
 Name:           ec2-api-tools
 Version:        %{major_version}.%{minor_version}
-Release:        1
+Release:        1%{?dist}
 Summary:        Amazon EC2 Command-Line Tools
 
 Group:          Applications/Internet
