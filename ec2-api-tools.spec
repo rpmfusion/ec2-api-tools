@@ -1,5 +1,5 @@
 %global major_version 1.3
-%global minor_version 36506
+%global minor_version 46266
 
 Name:           ec2-api-tools
 Version:        %{major_version}.%{minor_version}
@@ -72,6 +72,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Dec 18 2009 Lubomir Rintel (GoodData) <lubo.rintel@gooddata.com> - 1.3.46266-1
+- Update to 46266
+
 * Wed Jul 15 2009 Lubomir Rintel (Good Data) <lubo.rintel@gooddata.com> - 1.3.36506-1
 - Bump to newer upstream version
 - Publising, remove profanity
