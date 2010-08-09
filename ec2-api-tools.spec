@@ -3,7 +3,7 @@
 
 Name:           ec2-api-tools
 Version:        %{major_version}.%{minor_version}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Amazon EC2 Command-Line Tools
 
 Group:          Applications/Internet
@@ -18,6 +18,19 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires:       jpackage-utils
 Requires:       java >= 1.5
+Requires:       jakarta-commons-cli 
+Requires:       commons-codec 
+Requires:       jakarta-commons-discovery 
+Requires:       commons-httpclient 
+Requires:       jakarta-commons-logging 
+Requires:       jaf 
+Requires:       bcprov 
+Requires:       bea-stax-api 
+Requires:       javamail 
+Requires:       jdom 
+Requires:       log4j 
+Requires:       wsdl4j 
+Requires:       xalan-j2 
 
 BuildArch:      noarch
 
@@ -32,6 +45,24 @@ security groups, and more.
 
 
 %build
+# Drop jars that are distributable by Fedora
+xargs rm -f <<EOF
+lib/activation-1.1.jar
+lib/bcprov.jar
+lib/commons-cli-1.1.jar
+lib/commons-codec-1.3.jar
+lib/commons-discovery-0.2.jar
+lib/commons-httpclient-3.0.jar
+lib/commons-logging-1.0.4.jar
+lib/jaxb-api-2.0.jar
+lib/jdom-1.0.jar
+lib/log4j.jar
+lib/mail-1.4.jar
+lib/stax-api-1.0.1.jar
+lib/wsdl4j-1.6.1.jar
+lib/xalan-j2-2.7.0.jar
+lib/xalan-j2-serializer-2.7.0.jar
+EOF
 
 
 %install
@@ -72,6 +103,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Aug 09 2010 Lubomir Rintel (GoodData) <lubo.rintel@gooddata.com> - 1.3.53907-2
+- Reuse distribution JARs wherever possible
+
 * Mon Aug 09 2010 Lubomir Rintel (GoodData) <lubo.rintel@gooddata.com> - 1.3.53907-1
 - Update to 53907, support for Cluster Compute instances
 

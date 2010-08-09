@@ -28,16 +28,34 @@ then
 	exit 1
 fi
 
+# Bundled
+BASE_JARS="$BASE_JARS ec2-api-tools"
+
+# Dependencies
+BASE_JARS="$BASE_JARS commons-cli"
+BASE_JARS="$BASE_JARS commons-codec"
+BASE_JARS="$BASE_JARS commons-discovery"
+BASE_JARS="$BASE_JARS commons-httpclient"
+BASE_JARS="$BASE_JARS commons-logging"
+BASE_JARS="$BASE_JARS activation"
+BASE_JARS="$BASE_JARS bcprov"
+BASE_JARS="$BASE_JARS bea-stax-api"
+BASE_JARS="$BASE_JARS javamail"
+BASE_JARS="$BASE_JARS jaxme/jaxmeapi"
+BASE_JARS="$BASE_JARS jdom"
+BASE_JARS="$BASE_JARS log4j"
+BASE_JARS="$BASE_JARS wsdl4j"
+BASE_JARS="$BASE_JARS xalan-j2"
+BASE_JARS="$BASE_JARS xalan-j2-serializer"
+
 # Rest of the configuration
 MAIN_CLASS=com.amazon.aes.webservices.client.cmd.$CMD
 
 # Set parameters
 set_jvm
-
+set_classpath $BASE_JARS
 set_flags $BASE_FLAGS
 set_options $BASE_OPTIONS $EC2CMD_OPTS
-
-CLASSPATH=$(echo /usr/share/java/ec2-api-tools/* |sed 's/ /:/g')
 
 # Let's start
 run "$@"
