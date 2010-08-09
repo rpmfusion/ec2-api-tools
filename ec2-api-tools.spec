@@ -1,5 +1,5 @@
 %global major_version 1.3
-%global minor_version 46266
+%global minor_version 53907
 
 Name:           ec2-api-tools
 Version:        %{major_version}.%{minor_version}
@@ -72,6 +72,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Aug 09 2010 Lubomir Rintel (GoodData) <lubo.rintel@gooddata.com> - 1.3.53907-1
+- Update to 53907, support for Cluster Compute instances
+
 * Fri Dec 18 2009 Lubomir Rintel (GoodData) <lubo.rintel@gooddata.com> - 1.3.46266-1
 - Update to 46266
 
