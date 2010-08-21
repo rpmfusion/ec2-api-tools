@@ -3,7 +3,7 @@
 
 Name:           ec2-api-tools
 Version:        %{major_version}.%{minor_version}
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Amazon EC2 Command-Line Tools
 
 Group:          Applications/Internet
@@ -103,6 +103,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Aug 21 2010 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 1.3.53907-3
+- rebuilt
+
 * Mon Aug 09 2010 Lubomir Rintel (GoodData) <lubo.rintel@gooddata.com> - 1.3.53907-2
 - Reuse distribution JARs wherever possible
 
