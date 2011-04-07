@@ -3,7 +3,7 @@
 
 Name:           ec2-api-tools
 Version:        %{major_version}.%{minor_version}
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Amazon EC2 Command-Line Tools
 
 Group:          Applications/Internet
@@ -31,6 +31,7 @@ Requires:       jdom
 Requires:       log4j 
 Requires:       wsdl4j 
 Requires:       xalan-j2 
+Requires:       ws-jaxme
 
 BuildArch:      noarch
 
@@ -103,6 +104,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Apr 07 2011 Lubomir Rintel (GoodData) <lubo.rintel@gooddata.com> - 1.3.53907-4
+- Add a missing dependency
+
 * Sat Aug 21 2010 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 1.3.53907-3
 - rebuilt
 
