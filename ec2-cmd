@@ -1,7 +1,7 @@
 #!/bin/bash
 # 
 # EC2 API Tools dispatcher
-# Lubomir Rintel (Good Data) <lubo.rintel@gooddata.com>
+# Lubomir Rintel (GoodData) <lubo.rintel@gooddata.com>
 
 # Source functions library
 if [ -f /usr/share/java-utils/java-functions ] ; then 
@@ -47,6 +47,7 @@ BASE_JARS="$BASE_JARS log4j"
 BASE_JARS="$BASE_JARS wsdl4j"
 BASE_JARS="$BASE_JARS xalan-j2"
 BASE_JARS="$BASE_JARS xalan-j2-serializer"
+BASE_JARS="$BASE_JARS xerces-j2"
 
 # Rest of the configuration
 MAIN_CLASS=com.amazon.aes.webservices.client.cmd.$CMD

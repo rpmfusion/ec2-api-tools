@@ -1,9 +1,6 @@
-%global major_version 1.3
-%global minor_version 53907
-
 Name:           ec2-api-tools
-Version:        %{major_version}.%{minor_version}
-Release:        4%{?dist}
+Version:        1.4.2.4
+Release:        1%{?dist}
 Summary:        Amazon EC2 Command-Line Tools
 
 Group:          Applications/Internet
@@ -42,27 +39,44 @@ security groups, and more.
 
 
 %prep
-%setup -q -n %{name}-%{major_version}-%{minor_version}
+%setup -q
 
 
 %build
 # Drop jars that are distributable by Fedora
 xargs rm -f <<EOF
 lib/activation-1.1.jar
-lib/bcprov.jar
 lib/commons-cli-1.1.jar
 lib/commons-codec-1.3.jar
-lib/commons-discovery-0.2.jar
-lib/commons-httpclient-3.0.jar
-lib/commons-logging-1.0.4.jar
-lib/jaxb-api-2.0.jar
-lib/jdom-1.0.jar
-lib/log4j.jar
 lib/mail-1.4.jar
 lib/stax-api-1.0.1.jar
-lib/wsdl4j-1.6.1.jar
-lib/xalan-j2-2.7.0.jar
-lib/xalan-j2-serializer-2.7.0.jar
+lib/log4j-1.2.14.jar
+lib/commons-logging-api-1.1.1.jar
+lib/commons-httpclient-3.1.jar
+lib/bcprov-jdk15-145.jar
+lib/commons-discovery.jar
+lib/commons-logging-adapters-1.1.1.jar
+lib/jaxb-api.jar
+lib/jdom.jar
+lib/wsdl4j.jar
+lib/xalan.jar
+lib/serializer.jar
+EOF
+
+: TODO <<EOF
+lib/wss4j-1.5.3.jar
+lib/wstx-asl-3.2.7.jar
+lib/xfire-all-1.2.6.jar
+lib/xfire-jsr181-api-1.0-M1.jar
+lib/xml-apis.jar
+lib/XmlSchema-1.4.5.jar
+lib/xmlsec.jar
+lib/jets3t-0.8.0.jar
+lib/j2ee_mail.jar
+lib/java-xmlbuilder-0.4-SNAPSHOT.jar
+lib/jaxb-impl.jar
+lib/xercesImpl.jar
+lib/jaxws-api.jar
 EOF
 
 
@@ -104,6 +118,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri May 06 2011 Lubomir Rintel (GoodData) <lubo.rintel@gooddata.com> - 1.4.2.4-1
+- New version
+
 * Thu Apr 07 2011 Lubomir Rintel (GoodData) <lubo.rintel@gooddata.com> - 1.3.53907-4
 - Add a missing dependency
 
