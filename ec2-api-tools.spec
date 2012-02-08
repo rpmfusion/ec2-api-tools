@@ -1,6 +1,6 @@
 Name:           ec2-api-tools
 Version:        1.4.2.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Amazon EC2 Command-Line Tools
 
 Group:          Applications/Internet
@@ -118,6 +118,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Feb 09 2012 Nicolas Chauvet <kwizart@gmail.com> - 1.4.2.4-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
 * Fri May 06 2011 Lubomir Rintel (GoodData) <lubo.rintel@gooddata.com> - 1.4.2.4-1
 - New version
 
